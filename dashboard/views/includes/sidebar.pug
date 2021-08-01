@@ -1,0 +1,22 @@
+#sidebar.float-start
+	a(href='/dashboard')
+		.icon.round.shadow
+			img.round(src=user.avatarUrl(64), alt=user.username)
+	hr.bg-light
+	.guilds.position-sticky.overflow-scroll
+		each guild in guilds
+			a.text-light.text-decoration-none(href='/server/' + guild.id)
+				.icon.bg-dark-5.round.shadow.my-2(data-bs-toggle="tooltip" data-bs-placement="right", title=guild.name)
+					if guild.icon
+						img.round(alt=guild.name, src=guild.iconURL({dynamic: true, size: 64}))
+					else
+						p.text-center.abbr #{guild.nameAcronym}
+		//- - for (var i = 0; i < 15; ++i) {
+		//- 	a(href='/invite')
+		//- 		.icon.bg-dark-5.round.shadow.my-2(data-bs-toggle="tooltip" data-bs-placement="right" title="Add Me To a Guild")
+		//- 			p.abbr.text-success.text-center 
+		//- 				i.fas.fa-plus
+		//- - }
+	hr.bg-light
+	.menu-btn.open
+		.menu-btn__burger

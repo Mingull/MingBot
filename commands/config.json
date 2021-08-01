@@ -1,0 +1,38 @@
+[
+    {
+        "title": "General",
+        "description": "these are the general commands",
+        "emoji": ":information_source:",
+        "icon": "fas fa-info-square"
+    },
+    {
+        "title": "Economy",
+        "description": "these are the economic commands",
+        "emoji": ":moneybag:",
+        "icon": "fas fa-coins"
+    },
+    {
+        "title": "Fun",
+        "description": "these are the Fun commands",
+        "emoji": ":game_die:",
+        "icon": "fas fa-dice"
+    },
+    {
+        "title": "Music",
+        "description": "these are the Music commands",
+        "emoji": ":musical_note:",
+        "icon": "fas fa-dice"
+    },
+    {
+        "title": "Miscellaneous",
+        "description": "these are the miscellaneous commands",
+        "emoji": ":question:",
+        "icon": "fas fa-question"
+    },
+    {
+        "title": "Moderation",
+        "description": "these are the moderation commands",
+        "emoji": ":hammer_pick:",
+        "icon": "fas fa-gavel"
+    }
+]

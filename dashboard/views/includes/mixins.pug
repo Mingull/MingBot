@@ -1,0 +1,13 @@
+mixin category(category)
+	ul.list-group.mb-2
+		li.list-group-item(id=category.title) #[i(class=category.icon)] #{category.title}
+
+
+mixin categoryAnchor(category)
+	a(id=category.title.toLowerCase()).cursor-pointer #[i(class=category.icon).pe-2.text-muted] #{category.title}
+
+mixin commands(command)
+	ul.list-group
+		li.list-group-item(class=command.category,id=command.name + 'Command')
+			h4.mb-1 #{command.name}
+			p.lead #{command.description}

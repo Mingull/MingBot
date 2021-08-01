@@ -1,0 +1,33 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.text-light
+	.container-fluid
+		a.navbar-brand(href='/') MingBot
+		button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbar' aria-controls='navbar' aria-expanded='false' aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbar.collapse.navbar-collapse
+			ul.navbar-nav
+				li.nav-item.me-4
+					a.nav-link(href='/commands') #[i.far.fa-code.ps-2] Commands
+				li.nav-item.t-has-dropdown.mt-2
+					a(href='#') #[i.far.fa-palette] Theme
+					ul.t-dropdown
+						li.t-dropdown-item
+							a#light(href='#') light
+						li.t-dropdown-item
+							a#dark(href='#') dark
+						li.t-dropdown-item
+							a#solar(href='#') solarize
+			ul.navbar-nav.ms-auto
+				if user
+					.dropdown.me-3
+						.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+							img.me-2.user-avatar.round(src=user.avatarUrl(4096))
+							span.px-2 #{user.username}
+						.dropdown-menu.dropdown-menu-dark.dropdown-menu-end.dropdown-menu-lg-start
+							a.dropdown-item(href='/dashboard') #[i.fas.fa-tachometer-alt] Dashboard
+							hr.dropdown-divider
+							a.dropdown-item(href='/logout') #[i.far.fa-sign-out-alt] Logout
+				else
+					li.nav-item
+						a.nav-link(href='/login')
+							i.far.fa-sign-in-alt.ps-2
+							span.ps-1 Login

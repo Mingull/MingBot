@@ -1,0 +1,22 @@
+section#overviewModule.module.px-5
+	.container-fluid
+		.jumbotron.text-center.bg-transparent
+			h1.display-4.title #{user.username}
+			p.lead Manage your server configs with the MingBot Dashboard
+	.form-group.mt-5
+		.row.text-center
+			.col-sm-6
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-coins
+						strong.ms-1 Economy
+					p.mb-1 Balance #[span.underline !{economyValues.memberMoney}]
+					a#economy.overviewBtn.cursor-pointer.mb-0 Click here to view everything
+			.col-sm-6
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-id-card
+						strong.ms-1 Rank Card
+					.img-container
+						img#rankCard.overviewBtn.cursor-pointer.rankCardImage(src=rankCardImage, alt="Your rank card").mb-0
+					a#rankCard.overviewBtn.cursor-pointer.mb-0 Click here to edit your rank card

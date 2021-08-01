@@ -1,0 +1,14 @@
+{
+    "defaultPrefix": "m/",
+    "botInfo": {
+        "author": "Mingull",
+        "version": "1.0.5",
+        "description": "Ill put in a better description later...",
+        "createdAt": "February 19, 2021"
+    },
+    "bot": {
+        "id": "739483724814614679",
+        "secret": "abbiEq-nlwHQWmAbNsDb4HehhtGINB9e"
+    },
+    "dashboardURL": "http://localhost:3000"
+}

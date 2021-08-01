@@ -1,0 +1,71 @@
+.round {
+    border-radius: 50px !important;
+}
+
+.rounded-corners {
+    border-radius: 10px !important;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.bg-dark-5 {
+    background-color: #2a2f35 !important;
+}
+
+.bg-dark-10 {
+    background-color: #343a41 !important;
+}
+
+.bg-dark-15 {
+    background-color: #3e454d !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.size-50p {
+    width: 50%;
+}
+
+.rank-gold {
+    height: 35px;
+    width: 35px;
+    text-align: bottom;
+    background-color: rgb(217, 156, 58);
+}
+
+.rank-silver {
+    height: 35px;
+    width: 35px;
+    text-align: bottom;
+    background-color: rgb(152, 152, 152);
+}
+
+.rank-bronze {
+    height: 35px;
+    width: 35px;
+    text-align: bottom;
+    background-color: rgb(174, 116, 65);
+}
+
+.rank-other {
+    height: 35px;
+    width: 35px;
+    text-align: bottom;
+    background-color: #23272c;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}

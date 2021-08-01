@@ -1,0 +1,125 @@
+doctype html
+html(lang="en")
+	head
+		include ../includes/header.pug
+
+		script(src='/js/sidebar.js', defer)
+		script(src='/js/dashboard.js', defer)
+
+		link(rel="stylesheet" href="css/index.css")
+		link(rel="stylesheet" href="css/sidebar.css")
+		link(rel="stylesheet" href="css/utils.css")
+
+		link(rel='apple-touch-icon' sizes='180x180' href='img/apple-touch-icon.png')
+		link(rel='icon' type='image/png' sizes='32x32' href='img/favicon-32x32.png')
+		link(rel='icon' type='image/png' sizes='16x16' href='img/favicon-16x16.png')
+		link(rel='manifest' href='img/site.webmanifest')
+		link(rel='mask-icon' href='img/safari-pinned-tab.svg' color='#5bbad5')
+		meta(name='msapplication-TileColor' content='#da532c')
+		meta(name='theme-color' content='#ffffff')
+
+	body.dark
+		include ../includes/sidebar.pug
+
+		include ../includes/navbar.pug
+
+		#sidebarExtension.bg-dark-5.text-light
+			header.text-center.pt-4
+				.large-icon.bg-dark.round#overview
+					img.round(src=user.avatarUrl(128), alt=user.username)
+				h4#overview.pt-2 #{user.username}
+					span.lead.text-muted #{'#' + user.discriminator.toString().padStart(4, '0')}
+			.tabs.navbar-nav
+				.category.cursor-pointer Settings
+				form(action="/userSettings/Theme?_method=PUT" method='POST').pe-4
+					.row.mb-3
+						.col
+							.input-group
+								label.input-group-text.bg-transparent.border-0 #[i.fas.fa-palette.pe-2.text-muted] Theme
+								select.form-select.text-light.bg-transparent.border-0(name='theme')
+									option.text-dark(value='dark') Dark
+									option.text-dark(value='light') Light
+					.d-flex.justify-content-center
+						button.btn.btn-success.disabled #[i.fas.fa-rocket] Save
+				.category.cursor-pointer Modules
+				a(id='economy').cursor-pointer #[i.fas.fa-coins.pe-2.text-muted] Economy
+				a(id='rankCard').cursor-pointer #[i.fas.fa-id-card.pe-2.text-muted] Rank Card
+
+		.container
+			include modules/user/overview
+			include modules/user/rankCard
+			include modules/user/economy
+
+
+			//- .module.mt-5.text-center.bg-transparent
+				h1.display-3 Edit Rank card
+				hr.title-divider
+				p.lead Edit your Rank Card
+				img#rankCardImage.mb-2(src=rankCardImage)
+				form(action='/userSettings/RankCard?_method=PUT' method='POST')
+					.form-group.mt-5.mx-5
+						.container-sm
+							.row.text-center
+								.d-flex.justify-content-center
+									button.btn.btn-success.px-5.py-3 #[i.fas.fa-rocket] Save
+								.col.col-sm-6
+									.border.rounded.m-3.p-3.bg-dark-15.d-flex.flex-column
+										label Process bar & required XP Color
+										input.form-control.form-control-color#rankFrontColor(type="color" name="rankColor" value=rankCardValues.color title="Choose a new color for your Rank Card")
+								.col.col-sm-6
+									.border.rounded.m-3.p-3.bg-dark-15.text-light
+										label Background Color or Image
+										input.form-control.form-control-color#rankBackColor(type="color" name="bgColor" value=(rankCardValues.backgroundType === 'COLOR' ? rankCardValues.background : '#23272A') title="Choose a new color for your Rank Card")
+							.row.row-cols-1.row-cols-sm-2.row-cols-md-3.rows-cols-lg-4.bg-dark.py-4.rounded-corners.mx-5
+								.col
+									label.rankImageInput.form-check.mb-3
+										- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/1.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/1.jpg' checked)
+											img(width='300' height='100' src='img/rankCardBackgrounds/1.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- } else {
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/1.jpg')
+											img(width='300' height='100' src='img/rankCardBackgrounds/1.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- }
+								.col
+									label.rankImageInput.form-check.mb-3
+										- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/2.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+											input.bg#bg2.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/2.jpg' checked)
+											img(width='300' height='100' src='img/rankCardBackgrounds/2.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- } else {
+											input.bg#bg2.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/2.jpg')
+											img(width='300' height='100' src='img/rankCardBackgrounds/2.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- }
+								.col
+									label.rankImageInput.form-check.mb-3
+										- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/3.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/3.jpg' checked)
+											img(width='300' height='100' src='img/rankCardBackgrounds/3.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- } else {
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/3.jpg')
+											img(width='300' height='100' src='img/rankCardBackgrounds/3.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- }
+								.col
+									label.rankImageInput.form-check.mb-3
+										- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/4.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/4.jpg' checked)
+											img(width='300' height='100' src='img/rankCardBackgrounds/4.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- } else {
+											input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/4.jpg')
+											img(width='300' height='100' src='img/rankCardBackgrounds/4.jpg')
+											span.checkmark #[i.fas.fa-check]
+										- }
+
+	//- - console.log(rankCard)
+	//- .module.jumbotron.text-center.bg-transparent
+	//- 	h1.display-3 Dashboard
+	//- 	p.lead The best bot made by 
+	//- 		span.fw-bold.fst-italic.text-decoration-underline Mingull#2901
+	//- 		i.fas.fa-star.ps-2
+	//- 	a(href='/invite').btn.btn-dark Add

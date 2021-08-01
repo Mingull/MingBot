@@ -1,0 +1,37 @@
+section#overviewModule.module.px-5
+	.container-fluid
+		.jumbotron.text-center.bg-transparent
+			h1.display-4.title #{guild.name}
+			p.lead Manage your server configs with the MingBot Dashboard
+	.form-group.mt-5
+		.row.text-center
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-ninja
+						strong.ms-1 Owner
+					p.mb-0 #{guild.owner.user.tag}
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-alt
+						strong.ms-1 Members
+					p.mb-0 #{guild.members.cache.filter(member => !member.user.bot).size}
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fas.fa-robot
+						strong.ms-1 Bots
+					p.mb-0 #{guild.members.cache.filter(member => member.user.bot).size}
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-at
+						strong.ms-1 Roles
+					p.mb-0 #{guild.roles.cache.size}
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-hashtag
+						strong.ms-1 Channels
+					p.mb-0 #{guild.channels.cache.size}

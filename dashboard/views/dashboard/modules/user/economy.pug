@@ -1,0 +1,96 @@
+section#economyModule.module.px-5
+	.container-fluid
+		.jumbotron.text-center.bg-transparent
+			h1.display-4.title #{user.username}
+			p.lead Manage your server configs with the MingBot Dashboard
+	.form-group.mt-5
+		.row.text-center
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-coins
+						strong.ms-1 Balance
+					p.mb-0 !{economyValues.memberMoney}
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-alt
+						strong.ms-1 Hourly Cooldown
+					- if(hourlyCooldownValues.milliseconds <= 0 || hourlyCooldownValues === 'no data'){
+						p.mb-0 No hourly cooldown
+						p.mb-0 Claim you hourly cooldown
+					- } else {
+						p#hMins.mb-0 Minutes: !{hourlyCooldownValues.minutes}
+						p#hSecs.mb-0 seconds: !{hourlyCooldownValues.seconds}
+					- }
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-alt
+						strong.ms-1 Daily Cooldown
+					- if(dailyCooldownValues.milliseconds <= 0 || dailyCooldownValues === 'no data'){
+						p.mb-0 No daily cooldown
+						p.mb-0 Claim you daily cooldown
+					- } else {
+						p.mb-0 Time left
+						p#dTimer.mb-0 !{dailyCooldownValues.hours}:!{dailyCooldownValues.minutes}:!{dailyCooldownValues.seconds}
+						//- p#dHours.mb-0 Hours: !{dailyCooldownValues.hours}
+						//- p#dMins.mb-0 Minutes: !{dailyCooldownValues.minutes}
+						//- p#dSecs.mb-0 seconds: !{dailyCooldownValues.seconds}
+					- }
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-alt
+						strong.ms-1 Weekly Cooldown
+					- if(weeklyCooldownValues.milliseconds <= 0 || weeklyCooldownValues === 'no data'){
+						p.mb-0 No weekly cooldown
+						p.mb-0 Claim you weekly cooldown
+					- } else {
+						p#wDays.mb-0 Days: !{weeklyCooldownValues.days}
+						p#wHours.mb-0 Hours: !{weeklyCooldownValues.hours}
+						p#wMins.mb-0 Minutes: !{weeklyCooldownValues.minutes}
+						p#wSecs.mb-0 seconds: !{weeklyCooldownValues.seconds}
+					- }
+			.col-xs-12.col-sm-6.col-md-4.col-lg-3
+				.border.rounded.m-3.p-3.bg-dark-15
+					p.uppercase
+						i.fas.fa-user-alt
+						strong.ms-1 Monthly Cooldown
+					- if(monthlyCooldownValues.milliseconds <= 0 || monthlyCooldownValues === 'no data'){
+						p.mb-0 No monthly cooldown
+						p.mb-0 Claim you monthly cooldown
+					- } else {
+						p#mWeeks.mb-0 Weeks: !{monthlyCooldownValues.weeks}
+						p#mDays.mb-0 Days: !{monthlyCooldownValues.days}
+						p#mHours.mb-0 Hours: !{monthlyCooldownValues.hours}
+						p#mMins.mb-0 Minutes: !{monthlyCooldownValues.minutes}
+						p#mSecs.mb-0 seconds: !{monthlyCooldownValues.seconds}
+					- }
+
+//- script(defer).
+//- 	var hourlyMilliseconds = !{hourlyCooldownValues.milliseconds}
+
+//- 	var dailyMilliseconds = !{dailyCooldownValues.milliseconds}
+
+//- 	var weeklyMilliseconds = !{weeklyCooldownValues.milliseconds}
+
+//- 	var monthlyMilliseconds = !{monthlyCooldownValues.milliseconds}
+
+//- var hourlySeconds = !{hourlyCooldownValues.seconds}
+//- var hourlyMinutes = !{hourlyCooldownValues.minutes}
+
+//- var dailySeconds = !{dailyCooldownValues.seconds}
+//- var dailyMinutes = !{dailyCooldownValues.minutes}
+//- var dailyhours = !{dailyCooldownValues.hours}
+
+//- var weeklySeconds = !{weeklyCooldownValues.seconds}
+//- var weeklyMinutes = !{weeklyCooldownValues.minutes}
+//- var weeklyhours = !{weeklyCooldownValues.hours}
+//- var weeklydays = !{weeklyCooldownValues.days}
+
+//- var monthlySeconds = !{monthlyCooldownValues.seconds}
+//- var monthlyMinutes = !{monthlyCooldownValues.minutes}
+//- var monthlyhours = !{monthlyCooldownValues.hours}
+//- var monthlydays = !{monthlyCooldownValues.days}
+//- var monthlyweeks = !{monthlyCooldownValues.weeks}

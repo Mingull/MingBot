@@ -1,0 +1,17 @@
+{
+    "general": {
+        "category": "General",
+        "questions": [
+            {
+                "question": "Whats your discord name",
+                "description": "Like User#1234",
+                "time": 120
+            },
+            {
+                "question": "what is your issue",
+                "description": "Explain it very detailed what the issue is",
+                "time": 240
+            }
+        ]
+    }
+}

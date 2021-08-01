@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.jumbotron {
+    margin-top: 25vh !important;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+}
+
+a.overviewBtn {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a.overviewBtn:hover {
+    color: #b9b9b9;
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.img-container img {
+    transition: transform .3s ease;
+}
+
+.img-container:hover img {
+    transform: scale(1.1);
+}
+
+nav {
+    min-height: 85px;
+}
+
+hr.title-divider {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.module {
+    padding-left: 5rem !important;
+}
+
+.rankCardImage {
+    width: 500px;
+}
+
+label.rankImageInput {
+    padding-left: 0 !important;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+label.rankImageInput input.radio-check[type=radio] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 25%;
+    left: -10px;
+    height: 25px;
+    width: 25px;
+    background-color: #999;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+label.rankImageInput:hover input.radio-check[type=radio]~.checkmark {
+    background-color: #ccc;
+}
+
+label.rankImageInput input.radio-check[type=radio]:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+label.rankImageInput input.radio-check[type=radio]:checked~.checkmark:after {
+    display: block;
+}
+
+label.rankImageInput:hover input.radio-check[type=radio]:checked~.checkmark {
+    background-color: #1273c2;
+}
+
+.radio-check[type=radio]+img {
+    cursor: pointer;
+}
+
+input.radio-check[type=radio]:checked {
+    opacity: 1;
+    position: relative;
+}
+
+input.radio-check[type=radio]+img {
+    border: 2px solid #999;
+}
+
+input.radio-check[type=radio]:checked+img {
+    border: 2px solid #2196F3;
+}
+
+@media (max-width: 576px) {
+    .module {
+        padding-left: 5rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .jumbotron {
+        margin-top: 5vh !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+    .rankCardImage {
+        width: 300px !important;
+    }
+
+    .module {
+        padding-left: 5rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .jumbotron {
+        margin-top: 20vh !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .rankCardImage {
+        width: 400px !important;
+    }
+
+    .module {
+        padding-left: 5rem !important;
+        padding-right: 0rem !important;
+    }
+}

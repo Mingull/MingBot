@@ -1,0 +1,17 @@
+section#moderationModule.module.container.px-5
+	.container-fluid
+		.jumbotron.text-center.bg-transparent
+			h1.display-4 Moderation
+			hr.container.size-50p
+			p.lead Here comes the moderation things
+		.row.my-5
+			.col-6
+				form(action=guild.id + "/moderation?_method=PUT" method='POST').form-group
+					select.form-select(name="modLogId")
+						each channel in Array.from(guild.channels.cache.filter(c=>c.type==="text").sort((a,b)=>(a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).values())
+							if channel.id === modLogId
+								option(value=channel.id selected) ##{channel.name}
+							else 
+								option(value=channel.id) ##{channel.name}
+					.d-flex.justify-content-center
+						button.btn.btn-success #[i.fas.fa-rocket] Save

@@ -1,0 +1,65 @@
+#rankCardModule.module.mt-5.text-center.bg-transparent
+	.container-fluid
+		h1.display-3 Edit Rank card
+		hr.title-divider
+		p.lead Edit your Rank Card
+		img.rankCardImage.mb-2(src=rankCardImage)
+		form(action='/userSettings/RankCard?_method=PUT' method='POST')
+			.form-group.mt-5.mx-5
+				.container-sm
+					.row.text-center
+						.d-flex.justify-content-center
+							button.btn.btn-success.px-5.py-3 #[i.fas.fa-rocket] Save
+						.col.col-sm-6
+							.border.rounded.m-3.p-3.bg-dark-15.d-flex.flex-column
+								label Process bar & required XP Color
+								input.form-control.form-control-color#rankFrontColor(type="color" name="rankColor" value=rankCardValues.color title="Choose a new color for your Rank Card")
+						.col.col-sm-6
+							.border.rounded.m-3.p-3.bg-dark-15.text-light
+								label Background Color or Image
+								input.form-control.form-control-color#rankBackColor(type="color" name="bgColor" value=(rankCardValues.backgroundType === 'COLOR' ? rankCardValues.background : '#23272A') title="Choose a new color for your Rank Card")
+					.row.row-cols-1.row-cols-sm-2.row-cols-md-3.rows-cols-lg-4.bg-dark.py-4.rounded-corners.mx-5
+						.col
+							label.rankImageInput.form-check.mb-3
+								- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/1.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/1.jpg' checked)
+									img(width='300' height='100' src='img/rankCardBackgrounds/1.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- } else {
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/1.jpg')
+									img(width='300' height='100' src='img/rankCardBackgrounds/1.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- }
+						.col
+							label.rankImageInput.form-check.mb-3
+								- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/2.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+									input.bg#bg2.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/2.jpg' checked)
+									img(width='300' height='100' src='img/rankCardBackgrounds/2.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- } else {
+									input.bg#bg2.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/2.jpg')
+									img(width='300' height='100' src='img/rankCardBackgrounds/2.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- }
+						.col
+							label.rankImageInput.form-check.mb-3
+								- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/3.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/3.jpg' checked)
+									img(width='300' height='100' src='img/rankCardBackgrounds/3.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- } else {
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/3.jpg')
+									img(width='300' height='100' src='img/rankCardBackgrounds/3.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- }
+						.col
+							label.rankImageInput.form-check.mb-3
+								- if (rankCardValues.background === './dashboard/assets/img/rankCardBackgrounds/4.jpg' && rankCardValues.backgroundType === 'IMAGE'){
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/4.jpg' checked)
+									img(width='300' height='100' src='img/rankCardBackgrounds/4.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- } else {
+									input.bg#bg1.radio-check.form-check-input(type="radio" name='bgImage' value='./dashboard/assets/img/rankCardBackgrounds/4.jpg')
+									img(width='300' height='100' src='img/rankCardBackgrounds/4.jpg')
+									span.checkmark #[i.fas.fa-check]
+								- }
