@@ -75,8 +75,7 @@ typings/
 # FuseBox cache
 .fusebox/
 
-
-
-/rank.png
 /background.jpg
-/backgroun.png
+/background.png
+/favicon_io.zip
+/favicon_io/
