@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const fetch = require("node-fetch");
 
 module.exports = {
@@ -8,6 +8,12 @@ module.exports = {
     description: "Start a quiz",
     cooldown: 0,
     args: false,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const response = await fetch("https://opentdb.com/api.php?amount=5&category=18&type=boolean");
         const data = await response.json();

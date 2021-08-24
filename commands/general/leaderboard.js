@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const { getConnection, getMember } = require("../../backend/functions");
 
 module.exports = {
@@ -7,6 +7,12 @@ module.exports = {
     category: "General",
     description: "Shows the leaderboard from the guild",
     args: false,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const conn = await getConnection();
         const embed = new MessageEmbed()

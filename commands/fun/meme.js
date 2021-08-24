@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const fetch = require("node-fetch")
 module.exports = {
     name: 'meme',
@@ -7,6 +7,12 @@ module.exports = {
     description: "Get a meme",
     cooldown: 0,
     args: false,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         fetch("https://www.reddit.com/r/memes/random/.json")
             .then(response => response.json())
@@ -20,7 +26,7 @@ module.exports = {
                     .setURL(`${memeURL}`)
                     .setImage(`${memeImg}`)
 
-                message.channel.send(embed)
+                message.channel.send({ embeds: [embed] })
             })
             .catch(err => console.error(err))
     }

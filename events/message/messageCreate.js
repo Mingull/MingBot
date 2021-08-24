@@ -7,8 +7,9 @@ module.exports = async (Discord, client, message) => {
     let guildCommandPrefixes;
     let prefix;
     if (message.guild) {
-        guildCommandPrefixes = getGuildCommandPrefixes();
-        prefix = guildCommandPrefixes.get(message.guild.id)
+        // guildCommandPrefixes = getGuildCommandPrefixes();
+        prefix = getGuildCommandPrefixes(message.guild.id);
+        // console.log(prefix);
     }
     if (message.channel.type == "dm") return;
     if (!message.member) message.member = await message.guild.fetchMember(message);
@@ -50,13 +51,15 @@ module.exports = async (Discord, client, message) => {
             const authorPerms = message.channel.permissionsFor(message.author);
             for (perm of command.permissions) {
                 if (!authorPerms || !authorPerms.has(perm)) {
-                    return message.channel.send(`You don't have permission to execute this command\nYou are lacking the permission: ${command.permissions.map(perm => `\`${perm}\``)}`);
+                    return message.channel.send(`You don't have permissions to execute this command\nYou are lacking the permissions: ${command.permissions.map(perm => `\`${perm}\``)}`)
+                        .then(msg => { setTimeout(() => msg.delete(), 3000) });
                 }
             }
         } else {
             const authorPerms = message.channel.permissionsFor(message.author);
             if (!authorPerms || !authorPerms.has(command.permissions)) {
-                return message.channel.send(`You don't have permission to execute this command`);
+                return message.channel.send(`You don't have permission to execute this command\nYou are lacking the permission: ${command.permissions}`)
+                    .then(msg => { setTimeout(() => msg.delete(), 3000) });
             }
         }
     }
@@ -106,6 +109,8 @@ module.exports = async (Discord, client, message) => {
     try {
         command.run(client, message, args)
     } catch (err) { console.log(err); }
+
+    module.exports.message
 }
 
 function rankSystem(conn, message) {
@@ -134,7 +139,7 @@ function rankSystem(conn, message) {
                         .setColor("#5cff5c")
                         .addField('Level', levelMember)
                         .addField('XP Till next level up', (nextLvlXp));
-                    message.channel.send(`GG ${message.author}, you leveled up!`, embed);
+                    message.channel.send({ content: `GG ${message.author}, you leveled up!`, embeds: [embed] });
                 }
                 conn.query(`UPDATE GuildMemberMessage SET memberXP = '${newXP}', messageCount = '${result[0][0].messageCount + 1}' WHERE memberId = '${memberId}' AND guildId = '${message.guild.id}'`)
                     .catch(err => console.log(err));

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const fs = require("fs");
 const { capitalize } = require("../../backend/functions");
 module.exports = {
@@ -10,6 +10,12 @@ module.exports = {
     args: false,
     private: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const embed = new MessageEmbed()
             .setColor("BLUE")
@@ -23,7 +29,7 @@ module.exports = {
             categoryConfig.forEach(c => {
                 embed.addField(`${c.emoji ? c.emoji : ''} ${c.title}`, `\`\`\`${c.description}\`\`\``, true)
             })
-            return message.channel.send(embed);
+            return message.channel.send({ embeds: [embed] });
         }
         if (args[0]) {
             const category = client.categories.filter(c => c.match(args[0]))[0]
@@ -47,7 +53,7 @@ module.exports = {
                     .addField('Description', `\`${cmd.description}\``, true)
                     .addField('Usage', `\`${cmd.usage}\``)
             }
-            return message.channel.send(embed);
+            return message.channel.send({ embeds: [embed] });
         }
     }
 }

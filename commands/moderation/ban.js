@@ -1,12 +1,15 @@
+const { Client, Message } = require("discord.js");
+
 module.exports = {
-    name: "play",
-    aliases: ["p"],
-    category: "Music",
-    description: "Play music",
+    name: "ban",
+    aliases: [],
+    category: "Moderation",
+    description: "ban a member",
     usage: "",
-    args: false,
     private: false,
+    args: false,
     cooldown: 0,
+    permissions: 'MANAGE_MESSAGES',
     /**
      * 
      * @param {Client} client 
@@ -14,7 +17,6 @@ module.exports = {
      * @param {String[]} args 
      */
     run: async (client, message, args) => {
-        const music = args.join(" ");
-        client.distube.play(message, music);
+        message.channel.send("Test");
     }
 }

@@ -22,6 +22,11 @@ CREATE TABLE GuildMemberMessage (
     muteCooldown VARCHAR(100) NOT NULL DEFAULT ""
 );
 
+CREATE TABLE MemberPremium (
+    memberId VARCHAR(100) NOT NULL PRIMARY KEY UNIQUE,
+    hasPremium tinyint(1) NOT NULL DEFAULT 0
+);
+
 CREATE TABLE GuildReactionRole (
     guildId VARCHAR(100) NOT NULL PRIMARY KEY UNIQUE,
     messageId VARCHAR(100) NULL,
@@ -30,7 +35,7 @@ CREATE TABLE GuildReactionRole (
 );
 
 CREATE TABLE MemberEconomy (
-    memberId VARCHAR(100) NOT NULL,
+    memberId VARCHAR(100) NOT NULL PRIMARY KEY UNIQUE,
     memberMoney INT(11) DEFAULT 0
 );
 

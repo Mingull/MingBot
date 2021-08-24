@@ -1,3 +1,4 @@
+const { Client, Message } = require("discord.js");
 const { getGuildCommandPrefixes, getConnection, setGuildCommandPrefix } = require("../../backend/functions");
 
 module.exports = {
@@ -8,9 +9,14 @@ module.exports = {
     usages: '[new prefix]',
     args: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
-        const guildCommandPrefixes = getGuildCommandPrefixes();
-        const prefix = guildCommandPrefixes.get(message.guild.id);
+        const prefix = getGuildCommandPrefixes(message.guild.id);
         const conn = await getConnection();
         if (args[0]) {
             if (message.member.id === message.guild.ownerID) {

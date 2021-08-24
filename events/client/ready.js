@@ -1,11 +1,11 @@
 const { defaultPrefix } = require("../../backend/config.json")
-const { setGuildCommandPrefixes, getConnection, getGuildCommandPrefixes, getQueue, getWelcomeChannels, setWelcomeChannels } = require("../../backend/functions");
+const { setGuildCommandPrefixes, getConnection, getGuildCommandPrefixes, getWelcomeChannels, setWelcomeChannels } = require("../../backend/functions");
 module.exports = async (Discord, client) => {
     const conn = await getConnection();
     console.log(`Hi, ${client.user.tag} has started.\nserving ${client.users.cache.size} users in ${client.channels.cache.size} channels in ${client.guilds.cache.size} servers\n`);
 
     let num = 0;
-    const colors = ["\x1b[36m%s\x1b[0m", "\x1b[32m%s\x1b[0m"];
+    const colors = ["\x1b[36m%s\x1b[0m", "\x1b[32m%s\x1b[0m", "\x1b[35m%s\x1b[0m"];
     var color;
     client.guilds.cache.forEach((g) => {
         const isOdd = num % 2;

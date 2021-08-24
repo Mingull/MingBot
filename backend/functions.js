@@ -14,10 +14,11 @@ module.exports = {
 
     /**
      * Get the guild command prefixes mappings
+     * @param {String} guildId get the prefix through the guildId
      * @returns guildCommandPrefixes
      */
-    getGuildCommandPrefixes: () => { // gets the guildCommandPrefixes cache
-        return guildCommandPrefixes;
+    getGuildCommandPrefixes: (guildId) => { // gets the guildCommandPrefixes cache
+        return guildCommandPrefixes.get(guildId);
     },
     /**
      * Set the guild command prefixes mappings

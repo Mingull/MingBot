@@ -11,9 +11,10 @@ module.exports = async (Discord, client, oldMessage, newMessage) => {
         //     .setFooter(`Author: ${newMessage.author.id}`)
         const embed = new MessageEmbed()
             .setTitle('A message has been edited')
-            .setDescription(`A message by ${newMessage.author.tag} was deleted by him or herself\n**Channel:**  ${messageDeleted.channel}\n**Content:** \`\`\`${content}\`\`\``)
+            // .setDescription(`A message by ${newMessage.author.tag} was deleted by him or herself\n**Channel:**  ${newMessage.channel}\n**Content:** \`\`\`${content}\`\`\``)
+            .setDescription(`A message has been edited in ${newMessage.channel}\n **Before:** \`${oldMessage.content}\`\n**After:** \`${newMessage.content}\``)
             .setTimestamp()
-            .setFooter(`Author ID: ${messageDeleted.author.id}\nMessage ID: ${messageDeleted.id}`)
-        client.channels.cache.get('829339861247983676').send(embed);
+            .setFooter(`Author ID: ${newMessage.author.id}\nMessage ID: ${newMessage.id}`)
+        client.channels.cache.get('829339861247983676').send({ embeds: [embed] });
     }
 }

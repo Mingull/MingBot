@@ -7,6 +7,12 @@ module.exports = {
     args: false,
     private: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         let queue = client.distube.getQueue(message);
         message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>

@@ -1,3 +1,4 @@
+const { Client, Message } = require("discord.js");
 const { getConnection } = require("../../backend/functions")
 module.exports = {
     name: 'balance',
@@ -8,6 +9,12 @@ module.exports = {
     private: false,
     args: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         // if (message.deletable) return message.delete().then(msg => msg.channel.send("This command has been deactivated").then(msg => msg.delete({ timeout: 3000 })))
         const conn = await getConnection()

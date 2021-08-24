@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const { getConnection } = require("../../backend/functions")
 
 module.exports = {
@@ -9,6 +9,12 @@ module.exports = {
     private: false,
     args: false,
     cooldown: 300,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const conn = await getConnection();
 

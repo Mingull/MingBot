@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 const { botInfo, PREFIX } = require("../../backend/config.json");
 const { getMember } = require("../../backend/functions");
 const { stripIndents } = require("common-tags");
@@ -12,10 +12,15 @@ module.exports = {
     args: true,
     private: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const infoEmbed = new MessageEmbed()
             .setColor("RANDOM")
-
 
         const infoMsg = await message.channel.send(`Collecting all the data`);
         if (!args[0]) return infoMsg.edit(`Usage: ${PREFIX}info <bot | guild/server>`);

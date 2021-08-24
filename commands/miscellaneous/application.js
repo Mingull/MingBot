@@ -1,3 +1,5 @@
+const { Client, Message } = require("discord.js");
+
 module.exports = {
     name: "application",
     aliases: ["apply"],
@@ -6,6 +8,12 @@ module.exports = {
     usage: "<create | delete>",
     args: true,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         // basic vars
         const guild = message.guild;

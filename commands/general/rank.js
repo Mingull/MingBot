@@ -1,4 +1,4 @@
-const { MessageAttachment } = require("discord.js");
+const { MessageAttachment, Client, Message } = require("discord.js");
 const { Rank } = require("canvacord");
 const { getConnection, getMember } = require("../../backend/functions");
 
@@ -9,6 +9,12 @@ module.exports = {
     description: "Shows you your or the mentioned members rank",
     args: false,
     usage: "[mention member | member id]",
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const conn = await getConnection();
         const member = getMember(message, args.join(" "))

@@ -1,4 +1,4 @@
-const { ReactionCollector, MessageEmbed } = require("discord.js");
+const { ReactionCollector, MessageEmbed, Client, Message } = require("discord.js");
 const { getMember } = require("../../backend/functions");
 
 module.exports = {
@@ -8,6 +8,12 @@ module.exports = {
     category: "Miscellaneous",
     args: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const { author, guild } = message;
         const ticketChannel = message.guild.channels.cache.find(c => c.name == `ticket-${author.username.toLowerCase()}${author.discriminator}`)

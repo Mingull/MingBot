@@ -8,6 +8,12 @@ module.exports = {
     usage: '<channelId | mention channel>',
     args: true,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         if (!getMember(message, message.author.id).hasPermission('MANAGE_GUILD'))
             return message.channel.send("You dont have the right permissions to execute this command!")

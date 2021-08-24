@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, Message } = require("discord.js");
 
 module.exports = {
     name: "suggestion",
@@ -9,6 +9,12 @@ module.exports = {
     args: true,
     private: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         const channel = message.guild.channels.cache.find(c => c.name === 'suggestions');
         if (!channel) return message.channel.send("Suggestions channel does not exist in this guild!");
@@ -22,7 +28,7 @@ module.exports = {
             .addField("Status", "Not implemented yet xD")
             .setTimestamp()
 
-        channel.send(embed).then((msg) => {
+        channel.send({ embeds: [embed] }).then((msg) => {
             msg.react('✅')
             msg.react('❌')
             msg.react('🗑')

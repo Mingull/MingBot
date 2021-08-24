@@ -30,7 +30,7 @@ module.exports = async (Discord, client, message) => {
                 .setTimestamp()
                 .setFooter(`Author ID: ${message.author.id}\nMessage ID: ${message.id}`)
 
-            client.channels.cache.get(modLogId).send(embed);
+            client.channels.cache.get(modLogId).send({ embeds: [embed] });
         }
     }
 }

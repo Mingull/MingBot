@@ -1,3 +1,5 @@
+const { Client, Message } = require("discord.js");
+
 module.exports = {
     name: 'ping',
     aliases: ["latency"],
@@ -6,6 +8,12 @@ module.exports = {
     args: false,
     private: false,
     cooldown: 0,
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @param {String[]} args 
+     */
     run: async (client, message, args) => {
         // if (message.deletable) message.delete();
         const msg = await message.channel.send(`🏓 Pinging...`);

@@ -27,7 +27,8 @@ module.exports = async (Discord, client, reaction, user) => {
                     arr.push({ emojiId: result.emojiId, roleId: result.roleId })
                 })
                 setCachedMessageReactions(id, arr);
-            } else {
+            }
+            else {
                 return;
             }
         } catch (err) {
